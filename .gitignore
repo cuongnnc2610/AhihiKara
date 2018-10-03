@@ -8,3 +8,5 @@
 /build
 /captures
 .externalNativeBuild
+/ExampleInstrumentedTest.java
+/ExampleUnitTest.java
