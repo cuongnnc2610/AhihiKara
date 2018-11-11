@@ -9,12 +9,14 @@ public class Song {
     private String name;
     private String singer;
     private String action;
+    private String url;
 
-    public Song(int icon, String name, String singer, String action) {
+    public Song(int icon, String name, String singer, String action, String url) {
         this.icon = icon;
         this.name = name;
         this.singer = singer;
         this.action = action;
+        this.url = url;
     }
 
     public int getIcon() {
@@ -47,5 +49,13 @@ public class Song {
 
     public void setAction(String action) {
         this.action = action;
+    }
+
+    public String getURL() {
+        return url;
+    }
+
+    public void setURL(String url) {
+        this.url = url;
     }
 }
