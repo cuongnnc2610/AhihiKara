@@ -31,21 +31,17 @@
                     android:layout_weight="1"
                     android:background="@drawable/ic_search_black_24dp" />
 
-                <TextView
+                <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="8"
-                    android:text="Tìm kiếm"
+                    android:hint="Tìm kiếm"
+                    android:textColorHint="#777777"
                     android:textColor="#777777"
-                    android:textSize="20sp" />
-
-                <Button
-                    android:layout_width="2dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/ic_mic_black_24dp"
-                    android:gravity="end" />
+                    android:textSize="20sp"
+                    android:background="@android:color/transparent"
+                    android:singleLine="true"/>
 
             </LinearLayout>
 
@@ -85,7 +81,6 @@
                             <ImageView
                                 android:layout_width="140dp"
                                 android:layout_height="140dp"
-
                                 android:src="@drawable/khoimy1" />
 
                             <TextView
@@ -169,146 +164,28 @@
                     android:textColor="#ffe500"
                     android:textSize="20sp"
                     android:background="@null"/>
-                <LinearLayout
+                <ListView
+                    android:id="@+id/lv_tatcabaihat"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingBottom="7dp">
-                    <ImageView
-                        android:layout_width="64dp"
-                        android:layout_height="64dp"
-                        android:src="@drawable/duyenminhlo"/>
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginLeft="5dp"
-                        android:layout_gravity="center">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Ai Yêu Bác Hồ Chí Minh"
-                            android:textSize="18sp"
-                            android:textColor="#ffffff"
-                            android:textStyle="bold"
-                            android:paddingBottom="7dp"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Bác Hồ"
-                            android:textColor="#909faa"/>
-                    </LinearLayout>
+                    android:layout_height="wrap_content">
 
-                </LinearLayout>
+                </ListView>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingBottom="7dp">
-                    <ImageView
-                        android:layout_width="64dp"
-                        android:layout_height="64dp"
-                        android:src="@drawable/duyenminhlo"/>
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginLeft="5dp"
-                        android:layout_gravity="center">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Ai Yêu Bác Hồ Chí Minh"
-                            android:textSize="18sp"
-                            android:textColor="#ffffff"
-                            android:textStyle="bold"
-                            android:paddingBottom="7dp"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Bác Hồ"
-                            android:textColor="#909faa"/>
-                    </LinearLayout>
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingBottom="7dp">
-                    <ImageView
-                        android:layout_width="64dp"
-                        android:layout_height="64dp"
-                        android:src="@drawable/duyenminhlo"/>
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginLeft="5dp"
-                        android:layout_gravity="center">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Ai Yêu Bác Hồ Chí Minh"
-                            android:textSize="18sp"
-                            android:textColor="#ffffff"
-                            android:textStyle="bold"
-                            android:paddingBottom="7dp"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Bác Hồ"
-                            android:textColor="#909faa"/>
-                    </LinearLayout>
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingBottom="7dp">
-                    <ImageView
-                        android:layout_width="64dp"
-                        android:layout_height="64dp"
-                        android:src="@drawable/duyenminhlo"/>
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginLeft="5dp"
-                        android:layout_gravity="center">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Ai Yêu Bác Hồ Chí Minh"
-                            android:textSize="18sp"
-                            android:textColor="#ffffff"
-                            android:textStyle="bold"
-                            android:paddingBottom="7dp"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Bác Hồ"
-                            android:textColor="#909faa"/>
-                    </LinearLayout>
-
-                </LinearLayout>
-
-
-
-
-                <TextView
+                <Button
+                    android:id="@+id/btn_xemtatca"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:paddingTop="5dp"
                     android:text="Xem tất cả >"
                     android:textColor="#ffff00"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    android:background="@null"
+                    android:textAllCaps="false"/>
 
 
-                <TextView
+                <Button
+                    android:id="@+id/btn_nhacviet"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingTop="10dp"
@@ -316,7 +193,8 @@
                     android:text="NHẠC VIỆT"
                     android:textColor="#ffe500"
                     android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:background="@null"/>
 
                 <HorizontalScrollView
                     android:layout_width="match_parent"
@@ -409,7 +287,8 @@
                     </LinearLayout>
                 </HorizontalScrollView>
 
-                <TextView
+                <Button
+                    android:id="@+id/btn_nhacaumy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingTop="10dp"
@@ -417,7 +296,8 @@
                     android:text="NHẠC ÂU MỸ"
                     android:textColor="#ffe500"
                     android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:background="@null"/>
 
                 <HorizontalScrollView
                     android:layout_width="match_parent"

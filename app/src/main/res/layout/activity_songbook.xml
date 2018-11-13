@@ -8,7 +8,13 @@
     android:layout_marginLeft="0dp"
     android:layout_marginTop="0dp"
     android:background="@color/bg">
-
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/bar"
@@ -24,14 +30,17 @@
             android:layout_weight="1"
             android:background="@drawable/ic_search_black_24dp" />
 
-        <TextView
+        <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="8"
-            android:text="Tìm kiếm"
+            android:hint="Tìm kiếm"
+            android:textColorHint="#777777"
             android:textColor="#777777"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:background="@android:color/transparent"
+            android:singleLine="true"/>
 
     </LinearLayout>
 
@@ -46,7 +55,8 @@
     <LinearLayout
         android:id="@+id/title"
         android:layout_below="@id/ahihiteam"
-        android:paddingTop="@dimen/top"
+        android:layout_marginTop="5dp"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -54,9 +64,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/large_size"
+            android:textSize="15sp"
             android:text="Tất Cả"
-            android:id="@+id/taca"
+            android:id="@+id/nhactatca"
             android:textStyle="bold"
             android:textColor="@color/white"
             android:layout_weight="1"
@@ -67,7 +77,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/large_size"
+            android:textSize="15sp"
             android:text="Nhạc Việt"
             android:id="@+id/nhacviet"
             android:textStyle="bold"
@@ -79,7 +89,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/large_size"
+            android:textSize="15sp"
             android:text="Nhạc Âu Mĩ"
             android:id="@+id/nhacaumi"
             android:textStyle="bold"
@@ -90,13 +100,14 @@
 
     </LinearLayout>
 
-    <ImageView
+    <View
         android:id="@+id/line"
-        android:layout_below="@id/title"
-        android:paddingTop="@dimen/top"
+        android:layout_below="@+id/title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/line"/>
+        android:layout_height="1dp"
+        android:background="#ffff00"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"/>
 
     <RelativeLayout
         android:id="@+id/list"
@@ -115,6 +126,6 @@
         </ListView>
 
     </RelativeLayout>
-
-
+    </LinearLayout>
+</ScrollView>
 </RelativeLayout>

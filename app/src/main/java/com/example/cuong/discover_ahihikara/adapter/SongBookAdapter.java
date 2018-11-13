@@ -1,6 +1,8 @@
 package com.example.cuong.discover_ahihikara.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,7 +10,9 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.cuong.discover_ahihikara.PlayVideoActivity;
 import com.example.cuong.discover_ahihikara.R;
 import com.example.cuong.discover_ahihikara.model.Song;
 
@@ -42,7 +46,7 @@ public class SongBookAdapter extends BaseAdapter {
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder;
+        final ViewHolder holder;
         if (convertView == null) {
             convertView = layoutInflater.inflate(R.layout.item_song, null);
             holder = new ViewHolder();
@@ -55,11 +59,23 @@ public class SongBookAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        Song song = this.listData.get(position);
+        final Song song = this.listData.get(position);
         holder.nameSong.setText(song.getName());
         holder.singerSong.setText(song.getSinger());
         holder.iconSong.setImageResource(song.getIcon());
         holder.actionSong.setText(song.getAction());
+
+        holder.actionSong.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "Bạn vừa chọn " + holder.actionSong.getText() + " bài hát " + holder.nameSong.getText(),   Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(context,PlayVideoActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("url", song.getURL());
+                intent.putExtras(bundle);
+                context.startActivity(intent);
+            }
+        });
 
         return convertView;
     }
