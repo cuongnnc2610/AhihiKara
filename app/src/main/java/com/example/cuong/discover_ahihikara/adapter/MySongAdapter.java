@@ -21,9 +21,6 @@ import com.example.cuong.discover_ahihikara.model.Song;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Welcome on 8/27/2016.
- */
 public class MySongAdapter extends ArrayAdapter<Song> {
 
     private Context context;
