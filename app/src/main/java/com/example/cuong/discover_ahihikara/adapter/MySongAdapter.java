@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.example.cuong.discover_ahihikara.MySongActivity;
 import com.example.cuong.discover_ahihikara.PlayVideoActivity;
 import com.example.cuong.discover_ahihikara.R;
+import com.example.cuong.discover_ahihikara.VideoSinging;
 import com.example.cuong.discover_ahihikara.model.Song;
 
 import java.util.ArrayList;
@@ -61,7 +62,7 @@ public class MySongAdapter extends ArrayAdapter<Song> {
             @Override
             public void onClick(View v) {
                 Toast.makeText(context, "Bạn vừa chọn " + viewHolder.actionSong.getText() + " bài hát " + viewHolder.nameSong.getText(),   Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(context,PlayVideoActivity.class);
+                Intent intent = new Intent(context,VideoSinging.class);
                 Bundle bundle = new Bundle();
                 bundle.putString("url", song.getURL());
                 intent.putExtras(bundle);
