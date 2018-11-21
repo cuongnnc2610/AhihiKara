@@ -60,6 +60,9 @@ public class MySongActivity extends AppCompatActivity {
         listSong.add(new Song( R.drawable.lac_troi, "Lạc Trôi", "Sơn Tùng", "Nghe", "lactroi"));
         listSong.add(new Song( R.drawable.khoimy1, "Vì Sao", "Khởi My", "Nghe", "visao"));
         listSong.add(new Song( R.drawable.khoimy2, "Gửi Cho Anh", "Khởi My", "Nghe", "guichoanh"));
+        listSong.add(new Song( R.drawable.breathless, "Breathless", "Shayne Ward", "Nghe", "breathless"));
+        listSong.add(new Song( R.drawable.roinguoithuongcunghoanguoidung, "Rồi Người Thương Cũng Hóa Người Dưng", "Hiền Hồ", "Nghe", "roinguoithuongcunghoanguoidung"));
+        listSong.add(new Song( R.drawable.dungainhacveanhay, "Đừng Ai Nhắc Về Anh Ấy", "Trà My", "Nghe", "dungainhacveanhay"));
 
         MySongAdapter mySongAdapter = new MySongAdapter(this,R.layout.item_song,listSong);
         lvMySong.setAdapter(mySongAdapter);
