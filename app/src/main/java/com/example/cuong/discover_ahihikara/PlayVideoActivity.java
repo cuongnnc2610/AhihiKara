@@ -45,8 +45,12 @@ public class PlayVideoActivity extends AppCompatActivity {
 
         try {
             // ID của file video.
-            int id = this.getRawResIdByName(url);
-            videoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + id));
+//            int id = this.getRawResIdByName(url);
+//            videoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + id));
+
+            // url from link
+            Uri uri=Uri.parse("http://test-kara.herokuapp.com/song/lactroi.mp4");
+            videoView.setVideoURI(uri);
 
         } catch (Exception e) {
             Log.e("Error", e.getMessage());

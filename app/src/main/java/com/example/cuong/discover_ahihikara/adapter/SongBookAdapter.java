@@ -53,7 +53,7 @@ public class SongBookAdapter extends BaseAdapter {
             holder.iconSong = (ImageView) convertView.findViewById(R.id.iconSong);
             holder.nameSong = (TextView) convertView.findViewById(R.id.nameSong);
             holder.singerSong = (TextView) convertView.findViewById(R.id.singerSong);
-            holder.actionSong = (Button) convertView.findViewById(R.id.actionSong);
+//            holder.actionSong = (Button) convertView.findViewById(R.id.actionSong);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
@@ -62,8 +62,8 @@ public class SongBookAdapter extends BaseAdapter {
         final Song song = this.listData.get(position);
         holder.nameSong.setText(song.getName());
         holder.singerSong.setText(song.getSinger());
-        holder.iconSong.setImageResource(song.getIcon());
-        holder.actionSong.setText(song.getAction());
+//        holder.iconSong.setImageResource(song.getIcon());
+//        holder.actionSong.setText(song.getAction());
 
         holder.actionSong.setOnClickListener( new View.OnClickListener() {
             @Override

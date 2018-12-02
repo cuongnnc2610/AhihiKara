@@ -1,29 +1,32 @@
 package com.example.cuong.discover_ahihikara.model;
 
+import android.net.Uri;
+import android.widget.ImageButton;
 
-/**
- * Created by Welcome on 8/27/2016.
- */
 public class Song {
-    private int icon;
+    private String icon;
     private String name;
     private String singer;
-    private String action;
     private String url;
+    private ImageButton btnlike;
 
-    public Song(int icon, String name, String singer, String action, String url) {
+
+    public Song(String icon, String name, String singer, String url) {
         this.icon = icon;
-        this.name = name;
+        if (name.length() > 15) {
+            this.name = name.substring(0, 12) + "...";
+        } else {
+            this.name = name;
+        }
         this.singer = singer;
-        this.action = action;
         this.url = url;
     }
 
-    public int getIcon() {
+    public String getIcon() {
         return icon;
     }
 
-    public void setIcon(int icon) {
+    public void setIcon(String icon) {
         this.icon = icon;
     }
 
@@ -32,7 +35,11 @@ public class Song {
     }
 
     public void setName(String name) {
-        this.name = name;
+        if (name.length() > 15) {
+            this.name = name.substring(0, 12) + "...";
+        } else {
+            this.name = name;
+        }
     }
 
     public String getSinger() {
@@ -43,14 +50,6 @@ public class Song {
         this.singer = singer;
     }
 
-    public String getAction() {
-        return action;
-    }
-
-    public void setAction(String action) {
-        this.action = action;
-    }
-
     public String getURL() {
         return url;
     }
@@ -58,4 +57,8 @@ public class Song {
     public void setURL(String url) {
         this.url = url;
     }
+
+    public ImageButton getBtnlike() { return btnlike;}
+
+    public void setBtnlike(ImageButton btnlike) { this.btnlike = btnlike;}
 }
