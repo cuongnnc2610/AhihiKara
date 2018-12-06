@@ -90,51 +90,51 @@ public class MainActivity extends AppCompatActivity {
 //        RecyclerView.ItemDecoration itemDecoration1 = new DividerItemDecoration(this, LinearLayoutManager.HORIZONTAL);
 //        rv_baihatmoi.addItemDecoration(itemDecoration1);
 //        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        getVietnameseSongs();
+//        list_nhacviet.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Lạc Trôi", "Sơn Tùng", "lactroi"));
+//        list_nhacviet.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Vì Sao", "Khởi My", "visao"));
+//        list_nhacviet.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Duyên mình lỡ", "Hương Tràm", "duyenminhlo"));
+//        list_nhacviet.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Gửi Cho Anh", "Khởi My", "guichoanh"));
+//        list_nhacviet.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Gửi Cho Anh", "Khởi My", "guichoanh"));
 
-        list_nhacviet.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Lạc Trôi", "Sơn Tùng", "lactroi"));
-        list_nhacviet.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Vì Sao", "Khởi My", "visao"));
-        list_nhacviet.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Duyên mình lỡ", "Hương Tràm", "duyenminhlo"));
-        list_nhacviet.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Gửi Cho Anh", "Khởi My", "guichoanh"));
-        list_nhacviet.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Gửi Cho Anh", "Khởi My", "guichoanh"));
-
-        rv_nhacviet.setHasFixedSize(true);
-        layoutManager = new LinearLayoutManager(this);
-        rv_nhacviet.setLayoutManager(layoutManager);
-        mAdapter = new SongAdapter(this, R.layout.rv_song, list_nhacviet);
-        rv_nhacviet.setAdapter(mAdapter);
-        RecyclerView.ItemDecoration itemDecoration3 = new DividerItemDecoration(this, LinearLayoutManager.HORIZONTAL);
-        rv_nhacviet.addItemDecoration(itemDecoration3);
-        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
-
-        list_nhacaumy.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Flashlight", "Jessi", "flashlight"));
-        list_nhacaumy.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Flashlight", "Jessi", "flashlight"));
-        list_nhacaumy.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Flashlight", "Jessi", "flashlight"));
-        list_nhacaumy.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Flashlight", "Jessi", "flashlight"));
-        list_nhacaumy.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Flashlight", "Jessi", "flashlight"));
-
-        rv_nhacaumy.setHasFixedSize(true);
-        layoutManager = new LinearLayoutManager(this);
-        rv_nhacaumy.setLayoutManager(layoutManager);
-        mAdapter = new SongAdapter(this, R.layout.rv_song, list_nhacaumy);
-        rv_nhacaumy.setAdapter(mAdapter);
-        RecyclerView.ItemDecoration itemDecoration4 = new DividerItemDecoration(this, LinearLayoutManager.HORIZONTAL);
-        rv_nhacaumy.addItemDecoration(itemDecoration4);
-        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
-
-        list_nhachan.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Flashlight", "Jessi", "flashlight"));
-        list_nhachan.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Flashlight", "Jessi", "flashlight"));
-        list_nhachan.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Flashlight", "Jessi", "flashlight"));
-        list_nhachan.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Flashlight", "Jessi", "flashlight"));
-        list_nhachan.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Flashlight", "Jessi", "flashlight"));
-
-        rv_nhachan.setHasFixedSize(true);
-        layoutManager = new LinearLayoutManager(this);
-        rv_nhachan.setLayoutManager(layoutManager);
-        mAdapter = new SongAdapter(this, R.layout.rv_song, list_nhachan);
-        rv_nhachan.setAdapter(mAdapter);
-        RecyclerView.ItemDecoration itemDecoration5 = new DividerItemDecoration(this, LinearLayoutManager.HORIZONTAL);
-        rv_nhachan.addItemDecoration(itemDecoration5);
-        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+//        rv_nhacviet.setHasFixedSize(true);
+//        layoutManager = new LinearLayoutManager(this);
+//        rv_nhacviet.setLayoutManager(layoutManager);
+//        mAdapter = new SongAdapter(this, R.layout.rv_song, list_nhacviet);
+//        rv_nhacviet.setAdapter(mAdapter);
+//        RecyclerView.ItemDecoration itemDecoration3 = new DividerItemDecoration(this, LinearLayoutManager.HORIZONTAL);
+//        rv_nhacviet.addItemDecoration(itemDecoration3);
+//        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        getUSUKSongs();
+//        list_nhacaumy.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Flashlight", "Jessi", "flashlight"));
+//        list_nhacaumy.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Flashlight", "Jessi", "flashlight"));
+//        list_nhacaumy.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Flashlight", "Jessi", "flashlight"));
+//        list_nhacaumy.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Flashlight", "Jessi", "flashlight"));
+//        list_nhacaumy.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Flashlight", "Jessi", "flashlight"));
+//
+//        rv_nhacaumy.setHasFixedSize(true);
+//        layoutManager = new LinearLayoutManager(this);
+//        rv_nhacaumy.setLayoutManager(layoutManager);
+//        mAdapter = new SongAdapter(this, R.layout.rv_song, list_nhacaumy);
+//        rv_nhacaumy.setAdapter(mAdapter);
+//        RecyclerView.ItemDecoration itemDecoration4 = new DividerItemDecoration(this, LinearLayoutManager.HORIZONTAL);
+//        rv_nhacaumy.addItemDecoration(itemDecoration4);
+//        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        getTruTinhSongs();
+//        list_nhachan.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Flashlight", "Jessi", "flashlight"));
+//        list_nhachan.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Flashlight", "Jessi", "flashlight"));
+//        list_nhachan.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Flashlight", "Jessi", "flashlight"));
+//        list_nhachan.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Flashlight", "Jessi", "flashlight"));
+//        list_nhachan.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Flashlight", "Jessi", "flashlight"));
+//
+//        rv_nhachan.setHasFixedSize(true);
+//        layoutManager = new LinearLayoutManager(this);
+//        rv_nhachan.setLayoutManager(layoutManager);
+//        mAdapter = new SongAdapter(this, R.layout.rv_song, list_nhachan);
+//        rv_nhachan.setAdapter(mAdapter);
+//        RecyclerView.ItemDecoration itemDecoration5 = new DividerItemDecoration(this, LinearLayoutManager.HORIZONTAL);
+//        rv_nhachan.addItemDecoration(itemDecoration5);
+//        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
 
         btnmyahihi = findViewById(R.id.btn_myahihi);
         btnbaihatmoi= findViewById(R.id.btn_baihatmoi);
@@ -243,6 +243,189 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        int statusCode = error.networkResponse.statusCode;
+                        if (statusCode == 401) {
+                            Toast.makeText(MainActivity.this, "Need login first", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                            Bundle bundle = new Bundle();
+                            startActivity(intent);
+                        } else {
+                            Toast.makeText(MainActivity.this, "Something was error, please try again", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }) {
+            /**
+             * set header
+             * */
+            @Override
+            public Map<String, String> getHeaders() {
+                Map<String, String> headers = new HashMap<String, String>();
+                SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE);
+                String token = sharedPreferences.getString("token","");
+                headers.put("Authorization", token);
+                return headers;
+            }
+        };
+        RequestQueue queue = Volley.newRequestQueue(this);
+        queue.add(request);
+    }
+
+    public void getVietnameseSongs() {
+        final ArrayList<Song> list = new ArrayList<>();
+        StringRequest request = new StringRequest(Request.Method.GET, URL_LIST_SONGS+"?option=1&limit=5",
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonListSong = new JSONObject(response);
+                            JSONArray jsonArrayListSong = jsonListSong.getJSONArray("list_song");
+                            for (int i=0; i<jsonArrayListSong.length(); i++) {
+                                JSONObject jsonSong = jsonArrayListSong.getJSONObject(i);
+                                String name = jsonSong.getString("name");
+                                String playURL = jsonSong.getString("play_url");
+                                String singer = jsonSong.getString("singer");
+                                String singerImageURL = jsonSong.getString("singer_image_url");
+                                list.add(new Song(singerImageURL, name, singer, playURL));
+                                rv_nhacviet.setHasFixedSize(true);
+                                layoutManager = new LinearLayoutManager(getApplicationContext());
+                                rv_nhacviet.setLayoutManager(layoutManager);
+                                mAdapter = new SongAdapter(getApplicationContext(), R.layout.rv_song, list);
+                                rv_nhacviet.setAdapter(mAdapter);
+                                RecyclerView.ItemDecoration itemDecoration3 = new DividerItemDecoration(getApplicationContext(), LinearLayoutManager.HORIZONTAL);
+                                rv_nhacviet.addItemDecoration(itemDecoration3);
+                                layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        int statusCode = error.networkResponse.statusCode;
+                        if (statusCode == 401) {
+                            Toast.makeText(MainActivity.this, "Need login first", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                            Bundle bundle = new Bundle();
+                            startActivity(intent);
+                        } else {
+                            Toast.makeText(MainActivity.this, "Something was error, please try again", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }) {
+            /**
+             * set header
+             * */
+            @Override
+            public Map<String, String> getHeaders() {
+                Map<String, String> headers = new HashMap<String, String>();
+                SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE);
+                String token = sharedPreferences.getString("token","");
+                headers.put("Authorization", token);
+                return headers;
+            }
+        };
+        RequestQueue queue = Volley.newRequestQueue(this);
+        queue.add(request);
+    }
+
+    public void getUSUKSongs() {
+        final ArrayList<Song> list = new ArrayList<>();
+        StringRequest request = new StringRequest(Request.Method.GET, URL_LIST_SONGS+"?option=2&limit=5",
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonListSong = new JSONObject(response);
+                            JSONArray jsonArrayListSong = jsonListSong.getJSONArray("list_song");
+                            for (int i=0; i<jsonArrayListSong.length(); i++) {
+                                JSONObject jsonSong = jsonArrayListSong.getJSONObject(i);
+                                String name = jsonSong.getString("name");
+                                String playURL = jsonSong.getString("play_url");
+                                String singer = jsonSong.getString("singer");
+                                String singerImageURL = jsonSong.getString("singer_image_url");
+                                list.add(new Song(singerImageURL, name, singer, playURL));
+                                rv_nhacaumy.setHasFixedSize(true);
+                                layoutManager = new LinearLayoutManager(getApplicationContext());
+                                rv_nhacaumy.setLayoutManager(layoutManager);
+                                mAdapter = new SongAdapter(getApplicationContext(), R.layout.rv_song, list);
+                                rv_nhacaumy.setAdapter(mAdapter);
+                                RecyclerView.ItemDecoration itemDecoration3 = new DividerItemDecoration(getApplicationContext(), LinearLayoutManager.HORIZONTAL);
+                                rv_nhacaumy.addItemDecoration(itemDecoration3);
+                                layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        int statusCode = error.networkResponse.statusCode;
+                        if (statusCode == 401) {
+                            Toast.makeText(MainActivity.this, "Need login first", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                            Bundle bundle = new Bundle();
+                            startActivity(intent);
+                        } else {
+                            Toast.makeText(MainActivity.this, "Something was error, please try again", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }) {
+            /**
+             * set header
+             * */
+            @Override
+            public Map<String, String> getHeaders() {
+                Map<String, String> headers = new HashMap<String, String>();
+                SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE);
+                String token = sharedPreferences.getString("token","");
+                headers.put("Authorization", token);
+                return headers;
+            }
+        };
+        RequestQueue queue = Volley.newRequestQueue(this);
+        queue.add(request);
+    }
+
+    public void getTruTinhSongs() {
+        final ArrayList<Song> list = new ArrayList<>();
+        StringRequest request = new StringRequest(Request.Method.GET, URL_LIST_SONGS+"?option=3&limit=5",
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonListSong = new JSONObject(response);
+                            JSONArray jsonArrayListSong = jsonListSong.getJSONArray("list_song");
+                            for (int i=0; i<jsonArrayListSong.length(); i++) {
+                                JSONObject jsonSong = jsonArrayListSong.getJSONObject(i);
+                                String name = jsonSong.getString("name");
+                                String playURL = jsonSong.getString("play_url");
+                                String singer = jsonSong.getString("singer");
+                                String singerImageURL = jsonSong.getString("singer_image_url");
+                                list.add(new Song(singerImageURL, name, singer, playURL));
+                                rv_nhachan.setHasFixedSize(true);
+                                layoutManager = new LinearLayoutManager(getApplicationContext());
+                                rv_nhachan.setLayoutManager(layoutManager);
+                                mAdapter = new SongAdapter(getApplicationContext(), R.layout.rv_song, list);
+                                rv_nhachan.setAdapter(mAdapter);
+                                RecyclerView.ItemDecoration itemDecoration3 = new DividerItemDecoration(getApplicationContext(), LinearLayoutManager.HORIZONTAL);
+                                rv_nhachan.addItemDecoration(itemDecoration3);
+                                layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
