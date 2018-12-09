@@ -27,4 +27,7 @@
     <string name="nhacaumy">Nhạc Âu Mỹ</string>
     <string name="nhachan">Nhạc trữ tình</string>
     <string name="banner">Banner</string>
+    <string name="malegender">Male</string>
+    <string name="femalegender">Female</string>
+    <string name="register">Register</string>e
 </resources>

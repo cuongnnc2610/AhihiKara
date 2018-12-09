@@ -3,6 +3,7 @@ package com.example.cuong.discover_ahihikara;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -24,6 +26,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.cuong.discover_ahihikara.adapter.MySongAdapter;
 import com.example.cuong.discover_ahihikara.adapter.SongAdapter;
+import com.example.cuong.discover_ahihikara.controller.ImageLoadTask;
 import com.example.cuong.discover_ahihikara.model.Song;
 
 import org.json.JSONArray;
@@ -33,6 +36,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
     private String URL_LIST_SONGS = "https://ahihikara.herokuapp.com/api/songs/list";
@@ -42,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private LinearLayoutManager layoutManager;
-    private ImageButton btnmyahihi;
+    private ImageView btnmyahihi;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,80 +65,10 @@ public class MainActivity extends AppCompatActivity {
         final ArrayList<Song> list_nhachan = new ArrayList<>();
 
         getFavoriteSongs();
-//        list_baihatyeuthich.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Lạc Trôi", "Sơn Tùng", "lactroi"));
-//        list_baihatyeuthich.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Vì Sao", "Khởi My", "visao"));
-//        list_baihatyeuthich.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Duyên mình lỡ", "Hương Tràm", "duyenminhlo"));
-//        list_baihatyeuthich.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Gửi Cho Anh", "Khởi My", "guichoanh"));
-//        list_baihatyeuthich.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Gửi Cho Anh", "Khởi My", "guichoanh"));
-//
-//        rv_baihatyeuthich.setHasFixedSize(true);
-//        mLayoutManager = new LinearLayoutManager(this);
-//        rv_baihatyeuthich.setLayoutManager(mLayoutManager);
-//        mAdapter = new SongAdapter(this, R.layout.item_song, list_baihatyeuthich);
-//        rv_baihatyeuthich.setAdapter(mAdapter);
-//        RecyclerView.ItemDecoration itemDecoration2 =
-//                new DividerItemDecoration(this, LinearLayoutManager.VERTICAL);
-//        rv_baihatyeuthich.addItemDecoration(itemDecoration2);
         getNewSongs();
-//        list_baihatmoi.add(new Song("https://ahihikara.herokuapp.com/singer/quangle.jpg", "Lạc Trôi", "Sơn Tùng", "lactroi"));
-//        list_baihatmoi.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Vì Sao", "Khởi My", "visao"));
-//        list_baihatmoi.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Duyên mình lỡ", "Hương Tràm", "duyenminhlo"));
-//        list_baihatmoi.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Gửi Cho Anh", "Khởi My", "guichoanh"));
-//        list_baihatmoi.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Gửi Cho Anh", "Khởi My", "guichoanh"));
-//
-//        rv_baihatmoi.setHasFixedSize(true);
-//        layoutManager = new LinearLayoutManager(this);
-//        rv_baihatmoi.setLayoutManager(layoutManager);
-//        mAdapter = new SongAdapter(this, R.layout.rv_song, list_baihatmoi);
-//        rv_baihatmoi.setAdapter(mAdapter);
-//        RecyclerView.ItemDecoration itemDecoration1 = new DividerItemDecoration(this, LinearLayoutManager.HORIZONTAL);
-//        rv_baihatmoi.addItemDecoration(itemDecoration1);
-//        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         getVietnameseSongs();
-//        list_nhacviet.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Lạc Trôi", "Sơn Tùng", "lactroi"));
-//        list_nhacviet.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Vì Sao", "Khởi My", "visao"));
-//        list_nhacviet.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Duyên mình lỡ", "Hương Tràm", "duyenminhlo"));
-//        list_nhacviet.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Gửi Cho Anh", "Khởi My", "guichoanh"));
-//        list_nhacviet.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Gửi Cho Anh", "Khởi My", "guichoanh"));
-
-//        rv_nhacviet.setHasFixedSize(true);
-//        layoutManager = new LinearLayoutManager(this);
-//        rv_nhacviet.setLayoutManager(layoutManager);
-//        mAdapter = new SongAdapter(this, R.layout.rv_song, list_nhacviet);
-//        rv_nhacviet.setAdapter(mAdapter);
-//        RecyclerView.ItemDecoration itemDecoration3 = new DividerItemDecoration(this, LinearLayoutManager.HORIZONTAL);
-//        rv_nhacviet.addItemDecoration(itemDecoration3);
-//        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         getUSUKSongs();
-//        list_nhacaumy.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Flashlight", "Jessi", "flashlight"));
-//        list_nhacaumy.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Flashlight", "Jessi", "flashlight"));
-//        list_nhacaumy.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Flashlight", "Jessi", "flashlight"));
-//        list_nhacaumy.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Flashlight", "Jessi", "flashlight"));
-//        list_nhacaumy.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Flashlight", "Jessi", "flashlight"));
-//
-//        rv_nhacaumy.setHasFixedSize(true);
-//        layoutManager = new LinearLayoutManager(this);
-//        rv_nhacaumy.setLayoutManager(layoutManager);
-//        mAdapter = new SongAdapter(this, R.layout.rv_song, list_nhacaumy);
-//        rv_nhacaumy.setAdapter(mAdapter);
-//        RecyclerView.ItemDecoration itemDecoration4 = new DividerItemDecoration(this, LinearLayoutManager.HORIZONTAL);
-//        rv_nhacaumy.addItemDecoration(itemDecoration4);
-//        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         getTruTinhSongs();
-//        list_nhachan.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Flashlight", "Jessi", "flashlight"));
-//        list_nhachan.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Flashlight", "Jessi", "flashlight"));
-//        list_nhachan.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Flashlight", "Jessi", "flashlight"));
-//        list_nhachan.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Flashlight", "Jessi", "flashlight"));
-//        list_nhachan.add(new Song("https://ahihikara.herokuapp.com/singer/lequyen.jpg", "Flashlight", "Jessi", "flashlight"));
-//
-//        rv_nhachan.setHasFixedSize(true);
-//        layoutManager = new LinearLayoutManager(this);
-//        rv_nhachan.setLayoutManager(layoutManager);
-//        mAdapter = new SongAdapter(this, R.layout.rv_song, list_nhachan);
-//        rv_nhachan.setAdapter(mAdapter);
-//        RecyclerView.ItemDecoration itemDecoration5 = new DividerItemDecoration(this, LinearLayoutManager.HORIZONTAL);
-//        rv_nhachan.addItemDecoration(itemDecoration5);
-//        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
 
         btnmyahihi = findViewById(R.id.btn_myahihi);
         btnbaihatmoi= findViewById(R.id.btn_baihatmoi);
@@ -142,6 +76,9 @@ public class MainActivity extends AppCompatActivity {
         btnnhacviet = findViewById(R.id.btn_nhacviet);
         btnnhacaumy = findViewById(R.id.btn_nhacaumy);
 
+        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences(SHARED_PREFERENCES_NAME, getApplicationContext().MODE_PRIVATE);
+        String avatar = sharedPreferences.getString("avatar","");
+        new ImageLoadTask(avatar, btnmyahihi).execute();
         btnmyahihi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -159,23 +96,15 @@ public class MainActivity extends AppCompatActivity {
                     public void onResponse(String response) {
                         try {
                             JSONObject jsonListSong = new JSONObject(response);
-                            JSONArray jsonArrayListSong = jsonListSong.getJSONArray("list_song");
-                            for (int i=0; i<jsonArrayListSong.length(); i++) {
-                                JSONObject jsonSong = jsonArrayListSong.getJSONObject(i);
-                                String name = jsonSong.getString("name");
-                                String playURL = jsonSong.getString("play_url");
-                                String singer = jsonSong.getString("singer");
-                                String singerImageURL = jsonSong.getString("singer_image_url");
-                                list.add(new Song(singerImageURL, name, singer, playURL));
-                                rv_baihatmoi.setHasFixedSize(true);
-                                layoutManager = new LinearLayoutManager(getApplicationContext());
-                                rv_baihatmoi.setLayoutManager(layoutManager);
-                                mAdapter = new SongAdapter(getApplicationContext(), R.layout.rv_song, list);
-                                rv_baihatmoi.setAdapter(mAdapter);
-                                RecyclerView.ItemDecoration itemDecoration1 = new DividerItemDecoration(getApplicationContext(), LinearLayoutManager.HORIZONTAL);
-                                rv_baihatmoi.addItemDecoration(itemDecoration1);
-                                layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
-                            }
+                            ArrayList<Song> list = Song.parseSongs(jsonListSong);
+                            rv_baihatmoi.setHasFixedSize(true);
+                            layoutManager = new LinearLayoutManager(getApplicationContext());
+                            rv_baihatmoi.setLayoutManager(layoutManager);
+                            mAdapter = new SongAdapter(getApplicationContext(), R.layout.rv_song, list);
+                            rv_baihatmoi.setAdapter(mAdapter);
+                            RecyclerView.ItemDecoration itemDecoration1 = new DividerItemDecoration(getApplicationContext(), LinearLayoutManager.HORIZONTAL);
+                            rv_baihatmoi.addItemDecoration(itemDecoration1);
+                            layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -185,7 +114,8 @@ public class MainActivity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        int statusCode = error.networkResponse.statusCode;
+                        int statusCode;
+                        statusCode = error.networkResponse.statusCode;
                         if (statusCode == 401) {
                             Toast.makeText(MainActivity.this, "Need login first", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
@@ -220,24 +150,15 @@ public class MainActivity extends AppCompatActivity {
                     public void onResponse(String response) {
                         try {
                             JSONObject jsonListSong = new JSONObject(response);
-                            JSONArray jsonArrayListSong = jsonListSong.getJSONArray("list_song");
-                            for (int i=0; i<jsonArrayListSong.length(); i++) {
-                                JSONObject jsonSong = jsonArrayListSong.getJSONObject(i);
-                                String name = jsonSong.getString("name");
-                                String playURL = jsonSong.getString("play_url");
-                                String singer = jsonSong.getString("singer");
-                                String singerImageURL = jsonSong.getString("singer_image_url");
-                                list.add(new Song(singerImageURL, name, singer, playURL));
-
-                                rv_baihatyeuthich.setHasFixedSize(true);
-                                mLayoutManager = new LinearLayoutManager(getApplicationContext());
-                                rv_baihatyeuthich.setLayoutManager(mLayoutManager);
-                                mAdapter = new SongAdapter(getApplicationContext(), R.layout.item_song, list);
-                                rv_baihatyeuthich.setAdapter(mAdapter);
-                                RecyclerView.ItemDecoration itemDecoration2 =
-                                        new DividerItemDecoration(getApplicationContext(), LinearLayoutManager.VERTICAL);
-                                rv_baihatyeuthich.addItemDecoration(itemDecoration2);
-                            }
+                            ArrayList<Song> list = Song.parseSongs(jsonListSong);
+                            rv_baihatyeuthich.setHasFixedSize(true);
+                            mLayoutManager = new LinearLayoutManager(getApplicationContext());
+                            rv_baihatyeuthich.setLayoutManager(mLayoutManager);
+                            mAdapter = new SongAdapter(getApplicationContext(), R.layout.item_song, list);
+                            rv_baihatyeuthich.setAdapter(mAdapter);
+                            RecyclerView.ItemDecoration itemDecoration2 =
+                            new DividerItemDecoration(getApplicationContext(), LinearLayoutManager.VERTICAL);
+                            rv_baihatyeuthich.addItemDecoration(itemDecoration2);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -281,23 +202,15 @@ public class MainActivity extends AppCompatActivity {
                     public void onResponse(String response) {
                         try {
                             JSONObject jsonListSong = new JSONObject(response);
-                            JSONArray jsonArrayListSong = jsonListSong.getJSONArray("list_song");
-                            for (int i=0; i<jsonArrayListSong.length(); i++) {
-                                JSONObject jsonSong = jsonArrayListSong.getJSONObject(i);
-                                String name = jsonSong.getString("name");
-                                String playURL = jsonSong.getString("play_url");
-                                String singer = jsonSong.getString("singer");
-                                String singerImageURL = jsonSong.getString("singer_image_url");
-                                list.add(new Song(singerImageURL, name, singer, playURL));
-                                rv_nhacviet.setHasFixedSize(true);
-                                layoutManager = new LinearLayoutManager(getApplicationContext());
-                                rv_nhacviet.setLayoutManager(layoutManager);
-                                mAdapter = new SongAdapter(getApplicationContext(), R.layout.rv_song, list);
-                                rv_nhacviet.setAdapter(mAdapter);
-                                RecyclerView.ItemDecoration itemDecoration3 = new DividerItemDecoration(getApplicationContext(), LinearLayoutManager.HORIZONTAL);
-                                rv_nhacviet.addItemDecoration(itemDecoration3);
-                                layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
-                            }
+                            ArrayList<Song> list = Song.parseSongs(jsonListSong);
+                            rv_nhacviet.setHasFixedSize(true);
+                            layoutManager = new LinearLayoutManager(getApplicationContext());
+                            rv_nhacviet.setLayoutManager(layoutManager);
+                            mAdapter = new SongAdapter(getApplicationContext(), R.layout.rv_song, list);
+                            rv_nhacviet.setAdapter(mAdapter);
+                            RecyclerView.ItemDecoration itemDecoration3 = new DividerItemDecoration(getApplicationContext(), LinearLayoutManager.HORIZONTAL);
+                            rv_nhacviet.addItemDecoration(itemDecoration3);
+                            layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -342,23 +255,15 @@ public class MainActivity extends AppCompatActivity {
                     public void onResponse(String response) {
                         try {
                             JSONObject jsonListSong = new JSONObject(response);
-                            JSONArray jsonArrayListSong = jsonListSong.getJSONArray("list_song");
-                            for (int i=0; i<jsonArrayListSong.length(); i++) {
-                                JSONObject jsonSong = jsonArrayListSong.getJSONObject(i);
-                                String name = jsonSong.getString("name");
-                                String playURL = jsonSong.getString("play_url");
-                                String singer = jsonSong.getString("singer");
-                                String singerImageURL = jsonSong.getString("singer_image_url");
-                                list.add(new Song(singerImageURL, name, singer, playURL));
-                                rv_nhacaumy.setHasFixedSize(true);
-                                layoutManager = new LinearLayoutManager(getApplicationContext());
-                                rv_nhacaumy.setLayoutManager(layoutManager);
-                                mAdapter = new SongAdapter(getApplicationContext(), R.layout.rv_song, list);
-                                rv_nhacaumy.setAdapter(mAdapter);
-                                RecyclerView.ItemDecoration itemDecoration3 = new DividerItemDecoration(getApplicationContext(), LinearLayoutManager.HORIZONTAL);
-                                rv_nhacaumy.addItemDecoration(itemDecoration3);
-                                layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
-                            }
+                            ArrayList<Song> list = Song.parseSongs(jsonListSong);
+                            rv_nhacaumy.setHasFixedSize(true);
+                            layoutManager = new LinearLayoutManager(getApplicationContext());
+                            rv_nhacaumy.setLayoutManager(layoutManager);
+                            mAdapter = new SongAdapter(getApplicationContext(), R.layout.rv_song, list);
+                            rv_nhacaumy.setAdapter(mAdapter);
+                            RecyclerView.ItemDecoration itemDecoration3 = new DividerItemDecoration(getApplicationContext(), LinearLayoutManager.HORIZONTAL);
+                            rv_nhacaumy.addItemDecoration(itemDecoration3);
+                            layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -403,23 +308,15 @@ public class MainActivity extends AppCompatActivity {
                     public void onResponse(String response) {
                         try {
                             JSONObject jsonListSong = new JSONObject(response);
-                            JSONArray jsonArrayListSong = jsonListSong.getJSONArray("list_song");
-                            for (int i=0; i<jsonArrayListSong.length(); i++) {
-                                JSONObject jsonSong = jsonArrayListSong.getJSONObject(i);
-                                String name = jsonSong.getString("name");
-                                String playURL = jsonSong.getString("play_url");
-                                String singer = jsonSong.getString("singer");
-                                String singerImageURL = jsonSong.getString("singer_image_url");
-                                list.add(new Song(singerImageURL, name, singer, playURL));
-                                rv_nhachan.setHasFixedSize(true);
-                                layoutManager = new LinearLayoutManager(getApplicationContext());
-                                rv_nhachan.setLayoutManager(layoutManager);
-                                mAdapter = new SongAdapter(getApplicationContext(), R.layout.rv_song, list);
-                                rv_nhachan.setAdapter(mAdapter);
-                                RecyclerView.ItemDecoration itemDecoration3 = new DividerItemDecoration(getApplicationContext(), LinearLayoutManager.HORIZONTAL);
-                                rv_nhachan.addItemDecoration(itemDecoration3);
-                                layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
-                            }
+                            ArrayList<Song> list = Song.parseSongs(jsonListSong);
+                            rv_nhachan.setHasFixedSize(true);
+                            layoutManager = new LinearLayoutManager(getApplicationContext());
+                            rv_nhachan.setLayoutManager(layoutManager);
+                            mAdapter = new SongAdapter(getApplicationContext(), R.layout.rv_song, list);
+                            rv_nhachan.setAdapter(mAdapter);
+                            RecyclerView.ItemDecoration itemDecoration3 = new DividerItemDecoration(getApplicationContext(), LinearLayoutManager.HORIZONTAL);
+                            rv_nhachan.addItemDecoration(itemDecoration3);
+                            layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

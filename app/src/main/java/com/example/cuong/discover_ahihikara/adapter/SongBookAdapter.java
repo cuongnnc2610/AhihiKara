@@ -71,7 +71,7 @@ public class SongBookAdapter extends BaseAdapter {
                 Toast.makeText(context, "Bạn vừa chọn " + holder.actionSong.getText() + " bài hát " + holder.nameSong.getText(),   Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(context,PlayVideoActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putString("url", song.getURL());
+                bundle.putString("url", song.getPlayURL());
                 intent.putExtras(bundle);
                 context.startActivity(intent);
             }

@@ -34,4 +34,13 @@ public class AuthController {
             e.printStackTrace();
         }
     }
+
+    public void removeData(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(SHARED_PREFERENCES_NAME, context.MODE_PRIVATE);
+        SharedPreferences.Editor editor= sharedPreferences.edit();
+        editor.remove(USER_NAME);
+        editor.remove(GENDER);
+        editor.remove(AVATAR);
+        editor.remove(TOKEN);
+    }
 }

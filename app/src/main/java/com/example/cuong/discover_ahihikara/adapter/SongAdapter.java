@@ -36,8 +36,12 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(final ViewHolder viewHolder, int i) {
-        new ImageLoadTask(songs.get(i).getIcon(), viewHolder.iconSong).execute();
-        viewHolder.nameSong.setText(songs.get(i).getName());
+        new ImageLoadTask(songs.get(i).getSingerImageURL(), viewHolder.iconSong).execute();
+        String name = songs.get(i).getName();
+        if (name.length() > 15) {
+            name = name.substring(0, 12) + "...";
+        }
+        viewHolder.nameSong.setText(name);
         viewHolder.singerSong.setText(songs.get(i).getSinger());
     }
 

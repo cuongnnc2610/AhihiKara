@@ -50,7 +50,12 @@ public class MySongAdapter extends ArrayAdapter<Song> {
             viewHolder = (ViewHolder) convertView.getTag();
         }
         Song song = arrSong.get(position);
-        new ImageLoadTask(song.getIcon(), viewHolder.iconSong).execute();
+        new ImageLoadTask(song.getSingerImageURL(), viewHolder.iconSong).execute();
+        String name = song.getName();
+        if (name.length() > 18) {
+            name = name.substring(0, 15) + "...";
+        }
+        viewHolder.nameSong.setText(name);
         viewHolder.nameSong.setText(String.valueOf(song.getName()));
         viewHolder.singerSong.setText(song.getSinger());
         return convertView;
