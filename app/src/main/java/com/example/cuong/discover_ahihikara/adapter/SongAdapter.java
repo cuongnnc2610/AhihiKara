@@ -1,6 +1,9 @@
 package com.example.cuong.discover_ahihikara.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,15 +11,31 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.example.cuong.discover_ahihikara.LoginActivity;
 import com.example.cuong.discover_ahihikara.R;
+import com.example.cuong.discover_ahihikara.controller.AuthController;
 import com.example.cuong.discover_ahihikara.controller.ImageLoadTask;
 import com.example.cuong.discover_ahihikara.model.Song;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class SongAdapter extends RecyclerView.Adapter<SongAdapter.ViewHolder> {
+    private String URL_FAVORITE = "https://ahihikara.herokuapp.com/api/songs/{id}/favorite";
+    private String SHARED_PREFERENCES_NAME = "fileuser";
     private ArrayList<Song> songs;
     private Context context;
     private int resource;
@@ -35,7 +54,7 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(final ViewHolder viewHolder, final int i) {
         new ImageLoadTask(songs.get(i).getSingerImageURL(), viewHolder.iconSong).execute();
         String name = songs.get(i).getName();
         if (name.length() > 15) {
@@ -44,7 +63,24 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.ViewHolder> {
         viewHolder.nameSong.setText(name);
         viewHolder.singerSong.setText(songs.get(i).getSinger());
         try {
+            if (songs.get(i).getIsFavirote() == true) {
+                viewHolder.btnlike.setText("❤");
+            } else {
+                viewHolder.btnlike.setText("");
+            }
             viewHolder.tvLike.setText(String.valueOf(songs.get(i).getFavoritesCount()));
+            viewHolder.btnlike.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int method = Request.Method.POST;
+                    String isFavorite = viewHolder.btnlike.getText().toString();
+                    if(isFavorite == "❤") {
+                        method = Request.Method.DELETE;
+                    }
+                    int id = songs.get(i).getID();
+                    favorite(method, viewHolder.btnlike, viewHolder.tvLike, id);
+                }
+            });
         } catch (Exception e) {
         }
     }
@@ -58,7 +94,7 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.ViewHolder> {
     {
         ImageView iconSong;
         TextView nameSong, singerSong;
-        ImageButton btnlike;
+        TextView btnlike;
         TextView tvLike;
         public ViewHolder(View itemView) {
             super(itemView);
@@ -68,5 +104,47 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.ViewHolder> {
             btnlike = itemView.findViewById(R.id.btn_like);
             tvLike = itemView.findViewById(R.id.likeNumber);
         }
+    }
+
+    public void favorite(int method, final TextView btnLike, final TextView tvLike, int id){
+        StringRequest request = new StringRequest(method, URL_FAVORITE.replace("{id}", String.valueOf(id)),
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject json = new JSONObject(response);
+                            Boolean isFavorite = json.getBoolean("is_favorite");
+                            int  count = json.getInt("count");
+                            if (isFavorite == true) {
+                                btnLike.setText("❤");
+                            } else {
+                                btnLike.setText("");
+                            }
+                            tvLike.setText(String.valueOf(count));
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                    }
+                }) {
+            /**
+             * set header
+             * */
+            @Override
+            public Map<String, String> getHeaders() {
+                Map<String, String> headers = new HashMap<String, String>();
+                SharedPreferences sharedPreferences = context.getSharedPreferences(SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE);
+                String token = sharedPreferences.getString("token","");
+                headers.put("Authorization", token);
+                return headers;
+            }
+        };
+        RequestQueue queue = Volley.newRequestQueue(context);
+        queue.add(request);
     }
 }

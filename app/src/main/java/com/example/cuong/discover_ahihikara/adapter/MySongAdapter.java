@@ -13,7 +13,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-//import com.example.cuong.discover_ahihikara.MySongActivity;
 import com.example.cuong.discover_ahihikara.PlayVideoActivity;
 import com.example.cuong.discover_ahihikara.R;
 import com.example.cuong.discover_ahihikara.VideoSinging;
