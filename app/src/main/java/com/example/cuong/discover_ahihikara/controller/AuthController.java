@@ -15,7 +15,9 @@ import java.util.Set;
 public class AuthController {
     private final String SHARED_PREFERENCES_NAME="fileuser";
     private final String USER_NAME="username";
+    private final String NICK_NAME="nickname";
     private final String GENDER="gender";
+    private final String ABOUT="about";
     private final String AVATAR="avatar";
     private final String TOKEN="token";
 
@@ -26,6 +28,8 @@ public class AuthController {
             JSONObject jsonObject = new JSONObject(response);
             JSONObject jsonUser = jsonObject.getJSONObject("user");
             editor.putString(USER_NAME,jsonUser.getString("user_name"));
+            editor.putString(NICK_NAME,jsonUser.getString("nick_name"));
+            editor.putString(ABOUT,jsonUser.getString("about"));
             editor.putInt(GENDER,jsonUser.getInt("gender"));
             editor.putString(AVATAR,jsonUser.getString("avatar"));
             editor.putString(TOKEN,jsonObject.getString("token"));
@@ -39,6 +43,8 @@ public class AuthController {
         SharedPreferences sharedPreferences = context.getSharedPreferences(SHARED_PREFERENCES_NAME, context.MODE_PRIVATE);
         SharedPreferences.Editor editor= sharedPreferences.edit();
         editor.remove(USER_NAME);
+        editor.remove(NICK_NAME);
+        editor.remove(ABOUT);
         editor.remove(GENDER);
         editor.remove(AVATAR);
         editor.remove(TOKEN);

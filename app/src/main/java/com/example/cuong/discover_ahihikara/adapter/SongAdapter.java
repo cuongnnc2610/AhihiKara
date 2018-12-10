@@ -43,6 +43,10 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.ViewHolder> {
         }
         viewHolder.nameSong.setText(name);
         viewHolder.singerSong.setText(songs.get(i).getSinger());
+        try {
+            viewHolder.tvLike.setText(String.valueOf(songs.get(i).getFavoritesCount()));
+        } catch (Exception e) {
+        }
     }
 
     @Override
@@ -55,12 +59,14 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.ViewHolder> {
         ImageView iconSong;
         TextView nameSong, singerSong;
         ImageButton btnlike;
+        TextView tvLike;
         public ViewHolder(View itemView) {
             super(itemView);
             iconSong = itemView.findViewById(R.id.iconSong);
             nameSong = itemView.findViewById(R.id.nameSong);
             singerSong = itemView.findViewById(R.id.singerSong);
             btnlike = itemView.findViewById(R.id.btn_like);
+            tvLike = itemView.findViewById(R.id.likeNumber);
         }
     }
 }
